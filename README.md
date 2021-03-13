@@ -17,6 +17,11 @@
         - Saves high score. [COMPLETE]
         - Change UI back to default look.
 
+    - Write full tests for the game using Cypress.
+        - Set up Cypress.
+        - Write tests.
+        - Check all tests are working and complete.
+
 ## Notes:
 
 1. BUG: if guess is the same it saids it's the same but still continues to check if number is lower or higher. (Will be fixed in refactor (Change large if statement to a switch statement))
