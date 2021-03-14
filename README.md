@@ -8,14 +8,14 @@
     - Random number is generated and question mark is changed to the number when it is guessed. [COMPLETE]
     - Check button checks the input number to the Random number.
         - Check that the number input is between 1 - 20. [COMPLETE]
-        - If correct then saves the high score and changes UI.
+        - If correct then saves the high score. [COMPLETE]
         - If Incorrect deducts 1 point from score. [COMPLETE]
     - Clicking the again button:
         - Hides random number and generates new random number. [COMPLETE]
         - Clears number input box. [COMPLETE]
         - Resets score back to 20. [COMPLETE]
         - Saves high score. [COMPLETE]
-        - Change UI back to default look.
+
 
     - Write full tests for the game using Cypress.
         - Set up Cypress.

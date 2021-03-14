@@ -13,6 +13,11 @@ let prevGuess;
 const randomNumber = Math.floor(Math.random() * 20 + 1);
 console.log(randomNumber);
 
+//Creates click events.
+function clickEvent(dataPoint, func) {
+  dataPoint.addEventListener("click", func);
+}
+
 function resetStats() {
   console.log("Hi lets reset");
   messageResponse.innerText = "Start guessing...";
@@ -21,47 +26,49 @@ function resetStats() {
   guessInput.value = "";
 }
 
-//Needs to be refactored to practice DRY/Reusability.
 //Checks the users guess against the random number to produce a result.
 function checkGuessResult() {
-  console.log(guessInput.value);
   const guessedNumber = guessInput.value;
   let gameHighScore = highScore.innerText;
   let usersCurrentScore = userScore.innerHTML;
 
-  // if guess is the same tell them.
+  function innerText(anchor, data) {
+    anchor.innerText = data;
+  }
+
+  function lowHigh(lowHigh) {
+    innerText(messageResponse, lowHigh);
+    usersCurrentScore = usersCurrentScore - 1;
+    innerText(userScore, usersCurrentScore);
+    prevGuess = guessedNumber;
+  }
+
+  //If user guesses the same number.
   if (prevGuess == guessedNumber) {
-    messageResponse.innerText = "Please guess a new number";
-    console.log("guess a different number");
+    innerText(messageResponse, "Please guess a new number");
   }
 
-  if (guessedNumber == randomNumber) {
-    messageResponse.innerText = "You Won!";
-    randomNumberDisplay.innerText = randomNumber;
+  //Checks to see if the user won.
+  if (randomNumber == guessedNumber) {
+    innerText(messageResponse, "You Won!");
+    innerText(randomNumberDisplay, randomNumber);
     if (usersCurrentScore > gameHighScore) {
-      console.log("New high score");
-      highScore.innerText = usersCurrentScore;
+      innerText(highScore, usersCurrentScore);
     }
-  } else if (!guessedNumber) {
-    messageResponse.innerText = "Please enter a number";
-  } else if (guessedNumber > 20) {
-    messageResponse.innerText = "Please guess between 1 and 20";
   }
 
-  if (guessedNumber < randomNumber) {
-    messageResponse.innerText = "Too Low";
-    usersCurrentScore = usersCurrentScore - 1;
-    userScore.innerText = usersCurrentScore;
-    prevGuess = guessedNumber;
-    console.log(prevGuess);
-  } else if (guessedNumber > randomNumber) {
-    messageResponse.innerText = "Too high";
-    usersCurrentScore = usersCurrentScore - 1;
-    userScore.innerText = usersCurrentScore;
-    prevGuess = guessedNumber;
-    console.log(prevGuess);
+  // Checks to see if the user entered a number.
+  if (!guessedNumber) innerText(messageResponse, "Please enter a number");
+
+  //Checks to see if the entered number is between 1 and 20.
+  if (guessedNumber > 20) {
+    innerText(messageResponse, "Please guess between 1 and 20");
   }
+
+  //Checks if the guess is too low or high
+  if (guessedNumber < randomNumber) lowHigh("Too low");
+  if (guessedNumber > randomNumber) lowHigh("Too high");
 }
 
-restartGame.addEventListener("click", resetStats);
-checkInput.addEventListener("click", checkGuessResult);
+clickEvent(restartGame, resetStats);
+clickEvent(checkInput, checkGuessResult);
