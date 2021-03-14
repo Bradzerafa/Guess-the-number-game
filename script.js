@@ -29,6 +29,7 @@ function resetStats() {
 //Checks the users guess against the random number to produce a result.
 function checkGuessResult() {
   const guessedNumber = guessInput.value;
+  console.log(guessedNumber);
   let gameHighScore = highScore.innerText;
   let usersCurrentScore = userScore.innerHTML;
 
@@ -43,6 +44,16 @@ function checkGuessResult() {
     prevGuess = guessedNumber;
   }
 
+  // Checks to see if the user entered a number.
+  if (guessedNumber === "") {
+    innerText(messageResponse, "Please enter a number");
+  }
+
+  //Checks to see if the entered number is between 1 and 20.
+  if (guessedNumber > 20) {
+    innerText(messageResponse, "Please guess between 1 and 20");
+  }
+
   //If user guesses the same number.
   if (prevGuess == guessedNumber) {
     innerText(messageResponse, "Please guess a new number");
@@ -55,14 +66,6 @@ function checkGuessResult() {
     if (usersCurrentScore > gameHighScore) {
       innerText(highScore, usersCurrentScore);
     }
-  }
-
-  // Checks to see if the user entered a number.
-  if (!guessedNumber) innerText(messageResponse, "Please enter a number");
-
-  //Checks to see if the entered number is between 1 and 20.
-  if (guessedNumber > 20) {
-    innerText(messageResponse, "Please guess between 1 and 20");
   }
 
   //Checks if the guess is too low or high

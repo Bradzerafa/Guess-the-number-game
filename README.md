@@ -22,15 +22,6 @@
         - Write tests.
         - Check all tests are working and complete.
 
-## Notes:
-
-1. BUG: if guess is the same it saids it's the same but still continues to check if number is lower or higher. (Will be fixed in refactor (Change large if statement to a switch statement))
-2. Refactor code to utilise DRY.
-3. Extra Feature:
-   - Start Screen where users enter a username.
-   - Top 3 high scores (With Usernames).
-   - Could change the score to a timer based game?
-
 ## Proper tests include 3 things:
 
 1. Set up the application state.
@@ -43,3 +34,9 @@
    - Query for an element.
    - Interact with that element.
    - Assert about the content on the page.
+
+## Bugs:
+
+1. Check if user entry is empty.
+2. check if guessed number is more then 20
+3. check if user tries to guess the same number twice
