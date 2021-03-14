@@ -30,3 +30,16 @@
    - Start Screen where users enter a username.
    - Top 3 high scores (With Usernames).
    - Could change the score to a timer based game?
+
+## Proper tests include 3 things:
+
+1. Set up the application state.
+2. Take an action.
+3. Make an assertion about the resulting application state.
+
+   Actions:
+
+   - Visit a web page.
+   - Query for an element.
+   - Interact with that element.
+   - Assert about the content on the page.
