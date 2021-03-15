@@ -34,7 +34,3 @@
    - Query for an element.
    - Interact with that element.
    - Assert about the content on the page.
-
-## Bugs:
-
-1. check if user tries to guess the same number twice
