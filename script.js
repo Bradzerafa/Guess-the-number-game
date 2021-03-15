@@ -69,7 +69,7 @@ function checkGuessResult() {
   }
 
   //Checks if the guess is too low or high
-  if (guessedNumber > 0) {
+  if (guessedNumber > 0 && guessedNumber < 21) {
     if (guessedNumber < randomNumber) lowHigh("Too low");
     if (guessedNumber > randomNumber) lowHigh("Too high");
   }
