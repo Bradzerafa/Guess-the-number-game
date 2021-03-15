@@ -45,7 +45,7 @@ function checkGuessResult() {
   }
 
   // Checks to see if the user entered a number.
-  if (guessedNumber === "") {
+  if (!guessedNumber) {
     innerText(messageResponse, "Please enter a number");
   }
 
@@ -69,8 +69,10 @@ function checkGuessResult() {
   }
 
   //Checks if the guess is too low or high
-  if (guessedNumber < randomNumber) lowHigh("Too low");
-  if (guessedNumber > randomNumber) lowHigh("Too high");
+  if (guessedNumber > 0) {
+    if (guessedNumber < randomNumber) lowHigh("Too low");
+    if (guessedNumber > randomNumber) lowHigh("Too high");
+  }
 }
 
 clickEvent(restartGame, resetStats);

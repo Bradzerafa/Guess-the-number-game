@@ -37,6 +37,5 @@
 
 ## Bugs:
 
-1. Check if user entry is empty.
-2. check if guessed number is more then 20
-3. check if user tries to guess the same number twice
+1. check if guessed number is more then 20
+2. check if user tries to guess the same number twice
